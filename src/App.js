@@ -1,7 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import { addSheetValues, getPlayerData } from './utils/accessSheets';
+import TableContainer from './components/TableContainer';
 
 function App() {
+
+  const handleClick = async () => {
+    addSheetValues(20, 6);
+    const playerData = await getPlayerData();
+    console.log(playerData);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +18,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={handleClick} >Get DATA!!</button>
+        <TableContainer/>
       </header>
     </div>
   );
